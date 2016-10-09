@@ -33,7 +33,7 @@ private[macros] class LensesImpl(val c: blackbox.Context) {
     def monolenses(tpname: TypeName, params: List[ValDef]): List[Tree] = params.map { param =>
       val lensName = TermName(prefix + param.name.decodedName)
       q"""val $lensName =
-        org.rebeam.tree.macros.internal.Macro.mkLens[$tpname, $tpname, ${param.tpt}, ${param.tpt}](${param.name.toString})"""
+        org.rebeam.lenses.macros.internal.Macro.mkLens[$tpname, $tpname, ${param.tpt}, ${param.tpt}](${param.name.toString})"""
     }
 
 
@@ -46,7 +46,7 @@ private[macros] class LensesImpl(val c: blackbox.Context) {
           val q"x: $s" = q"x: $tpname[..${tparams.map(_.name)}]"
           val q"x: $a" = q"x: ${param.tpt}"
           q"""def $lensName[..$tparams] =
-            org.rebeam.tree.macros.internal.Macro.mkLens[$s, $s, $a, $a](${param.name.toString})"""
+            org.rebeam.lenses.macros.internal.Macro.mkLens[$s, $s, $a, $a](${param.name.toString})"""
         }
       }
     }
@@ -90,7 +90,7 @@ private[macros] class LensesImpl(val c: blackbox.Context) {
           val q"x: $b" = q"x: ${tptTransformer.transform(param.tpt)}"
 
           q"""def $lensName[..$defParams] =
-               org.rebeam.tree.macros.internal.Macro.mkLens[$s, $t, $a, $b](${param.name.toString})"""
+               org.rebeam.lenses.macros.internal.Macro.mkLens[$s, $t, $a, $b](${param.name.toString})"""
         }
       }
     }
