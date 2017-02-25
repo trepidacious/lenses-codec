@@ -4,7 +4,7 @@ version in ThisBuild := "0.1-SNAPSHOT"
 
 organization in ThisBuild := "org.rebeam"
 
-scalaVersion in ThisBuild := "2.11.8"
+scalaVersion in ThisBuild := "2.12.1"
 
 scalacOptions in ThisBuild ++= Seq(
   "-feature",
@@ -15,7 +15,7 @@ scalacOptions in ThisBuild ++= Seq(
   "-Xlint"
 )
 
-lazy val monocleVersion = "1.3.2"     // or "1.4.0-SNAPSHOT"
+lazy val monocleVersion = "1.4.0"
 
 lazy val root = project.in(file(".")).
   aggregate(`lenses-codecJS`, `lenses-codecJVM`).
