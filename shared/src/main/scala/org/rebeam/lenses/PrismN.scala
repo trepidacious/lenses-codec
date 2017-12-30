@@ -2,7 +2,6 @@ package org.rebeam.lenses
 
 import monocle._
 
-import scala.language.higherKinds
 import scala.reflect.ClassTag
 import scalaz.\/
 

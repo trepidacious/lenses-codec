@@ -4,7 +4,7 @@ version in ThisBuild := "0.1-SNAPSHOT"
 
 organization in ThisBuild := "org.rebeam"
 
-scalaVersion in ThisBuild := "2.11.8"
+scalaVersion in ThisBuild := "2.12.4"
 
 scalacOptions in ThisBuild ++= Seq(
   "-feature",
@@ -12,7 +12,8 @@ scalacOptions in ThisBuild ++= Seq(
   "-encoding", "UTF-8",
   "-unchecked",
   "-Xfatal-warnings",
-  "-Xlint"
+  "-Xlint",
+  "-Xcheckinit"
 )
 
 lazy val monocleVersion = "1.4.0"
